@@ -1,7 +1,0 @@
-#include
-//commen
-hellolol
-/*wdwdwq
-qwqwqw*/
-finalwll
-checkwoo

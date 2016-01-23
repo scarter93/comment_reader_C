@@ -5,11 +5,11 @@ z0
 cModel Technology
 dC:\Users\scarte9\ECSE425-FSM
 Ecomments_fsm
-Z0 w1453486220
+Z0 w1453581162
 Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
-Z4 dC:/Users/scarte9/ECSE425-FSM
+Z4 dC:/Users/scarte9/comment_reader_C
 Z5 8fsm.vhd
 Z6 Ffsm.vhd
 l0
@@ -18,9 +18,9 @@ Vc1Wc<M<>:0>4Dk1@zT]1N0
 !s100 8=ZD8]48;k_fm406>Zj^M1
 Z7 OV;C;10.3d;59
 32
-Z8 !s110 1453488478
+Z8 !s110 1453581178
 !i10b 1
-Z9 !s108 1453488478.143000
+Z9 !s108 1453581178.007000
 Z10 !s90 -reportprogress|300|fsm.vhd|
 Z11 !s107 fsm.vhd|
 !i113 1
@@ -32,8 +32,8 @@ R3
 DEx4 work 12 comments_fsm 0 22 c1Wc<M<>:0>4Dk1@zT]1N0
 l25
 L14
-V_D^YzM@TiO4JT8VgRog8Y3
-!s100 UKZk=53K5BGFPzAhXdVXD1
+Vf9YzeboVY^5:i8@S<gC@c3
+!s100 `FDl]^i??TUZ=mYJMM]MT1
 R7
 32
 R8
@@ -44,43 +44,39 @@ R11
 !i113 1
 R12
 Efsm_tb
-Z13 w1453488467
-Z14 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
-Z15 DPx4 ieee 16 std_logic_textio 0 22 V5TSK`;aJKC<l]CEg1>mz1
-R3
+Z13 w1453581007
 R2
+R3
 R4
-Z16 8fsm_tb.vhd
-Z17 Ffsm_tb.vhd
+Z14 8fsm_tb.vhd
+Z15 Ffsm_tb.vhd
 l0
-L8
-V4UG7@ZKdOglFhiE1ZbbLB0
-!s100 :Zi?4=[[a]RO<K0f;P@N21
+L4
+VU[B`;UO895C@51iMBJC:Q3
+!s100 RKDUZ0cXoY6_4:LXVza1h2
 R7
 32
 R8
 !i10b 1
-Z18 !s108 1453488478.477000
-Z19 !s90 -reportprogress|300|fsm_tb.vhd|
-Z20 !s107 fsm_tb.vhd|
+Z16 !s108 1453581178.474000
+Z17 !s90 -reportprogress|300|fsm_tb.vhd|
+Z18 !s107 fsm_tb.vhd|
 !i113 1
 R12
 Abehaviour
-R14
-R15
-R3
 R2
-DEx4 work 6 fsm_tb 0 22 4UG7@ZKdOglFhiE1ZbbLB0
-l30
-L11
-VW^<B[`@>`K@LS5YTBR_<n1
-Z21 !s100 oL0a3eT8FKM:9aS@8n_Eo1
+R3
+Z19 DEx4 work 6 fsm_tb 0 22 U[B`;UO895C@51iMBJC:Q3
+l47
+L7
+VNh9?@]Oh2HK]3^^PMKUQz3
+!s100 P9E@FW[mNPNgJX4g?Vz^_1
 R7
 32
 R8
 !i10b 1
+R16
+R17
 R18
-R19
-R20
 !i113 1
 R12

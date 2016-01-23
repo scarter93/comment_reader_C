@@ -13,9 +13,9 @@ end comments_fsm;
 
 architecture behavioral of comments_fsm is
 
-  
-type STATE_TYPE is (SM_0,SM_1,SM_2,SM_3,SM_4);
-signal state: STATE_TYPE;
+-- type for states, current implementation uses 4 states, could be reduced to 3
+type STATE_TYPE is (no_comment, first_slash, incomment, incomment_block, block_exit);
+signal state: STATE_TYPE := no_comment;
 
 -- The ASCII value for the '/', '*' and end-of-line characters
 constant SLASH_CHARACTER : std_logic_vector(7 downto 0) := "00101111";
@@ -24,56 +24,74 @@ constant NEW_LINE_CHARACTER : std_logic_vector(7 downto 0) := "00001010";
 
 begin
 
--- Insert your processes here
+-- process for FSM for comment checking in C
 process (clk, reset)
 begin
-    if reset = '0' then
-      state <= SM_0;
+    -- check to see if FSM is reset
+    if reset = '1' then
+      state <= no_comment;
       output <= '0';
+    -- if not in reset mode run FSM
     elsif rising_edge(clk) then
       case state is
-      when SM_0 =>
+      -- when we are in no_comment check to see if slash is next char
+      when no_comment =>
+	-- if slash is next char enter "first_slash" state
         if input = SLASH_CHARACTER then
-          state <= SM_1;
+          state <= first_slash;
           output <= '0';
+	-- if slash is not next char, stay in no_comment state
         else
-          state <= SM_0;
+          state <= no_comment;
           output <= '0';
         end if;
-      when SM_1 =>
+      -- if we are in first_slash state check to see if next char starts a comment
+      when first_slash =>
+	-- if next char is a slash enter incomment state
         if input = SLASH_CHARACTER then
           output <= '0';
-          state <= SM_2;
+          state <= incomment;
+	-- if next char is a star enter incomment_block state
         elsif input = STAR_CHARACTER then
           output <= '0';
-          state <= SM_3;
+          state <= incomment_block;
+	-- else return to no_comment state
         else
           output <= '0';
-          state <= SM_0;
+          state <= no_comment;
         end if;
-      when SM_2 =>
+      -- if we are in incomment state wait to detect new_line char
+      when incomment =>
+	-- if next char is new_line char then exit comment section
         if input = NEW_LINE_CHARACTER then
           output <= '1';
-          state <= SM_0;
+          state <= no_comment;
+	--else wait for new line to exit comment
         else
           output <= '1';
-          state <= SM_2;
+          state <= incomment;
         end if;
-      when SM_3 =>
+      -- if we are in incomment_block wait to detect * char
+      when incomment_block =>
+	-- if next char is a * char then move to block_exit state
         if input = STAR_CHARACTER then
           output <= '1';
-          state <= SM_4;
+          state <= block_exit;
+	--else wait for * char
         else
           output <= '1';
-          state <= SM_3;
+          state <= incomment_block;
         end if;
-      when SM_4 =>
+      -- if we are in block_exit state check next char to see if comment block is over
+      when block_exit =>
+	-- if next char is a slash then exit comment and return to "no_comment"
         if input = SLASH_CHARACTER then
           output <= '1';
-          state <= SM_0;
+          state <= no_comment;
+	--else return to incomment_block state (i.e. we are still in a block comment)
         else
           output <= '1';
-          state <= SM_3;
+          state <= incomment_block;
         end if;
       end case;
     end if;  

@@ -121,13 +121,13 @@ BEGIN
 	s_input <= test_case_slashstar(0);
 	WAIT FOR 1 * clk_period;
 	ASSERT(s_output = '0') REPORT "no comment should be output = '0'" SEVERITY ERROR;
-	--reset
+	
 	s_reset <= '1';
 	WAIT FOR 1 * clk_period;
 	s_reset <= '0';
 	WAIT FOR 1 * clk_period;
 	ASSERT (s_output = '0') REPORT "reset unsuccessful" SEVERITY ERROR;
-	-- test cases that contain to comment sections
+
 	REPORT "begin test case with NO COMMENTS";
 	for i in 9 downto 0 loop
 		s_input <= test_case_nocomment_slash(i);
